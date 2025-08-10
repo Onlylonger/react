@@ -1,0 +1,57 @@
+# Quick Start
+
+基于 `Tailwindcss` 的一个 `React` 组件库. 参考 `shadcn-ui` 实现. 目前只提供 `ES` 模块
+
+## 1. 安装依赖
+
+```sh
+pnpm add @shilong/react
+```
+
+## 2. 加载主题样式
+
+```tsx "title=index.tsx" {5}
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { App } from './App.tsx'
+import './style.css'
+import '@shilong/ui/style.css'
+
+createRoot(document.querySelector('#app')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```
+
+:::details Tailwindcss Preflight 重复如何处理？
+
+因为默认主题中包含了 `Tailwindcss Preflight` 的样式. 因此当你自身项目也在使用 `Tailwindcss` 的时候，可以注释或者去掉 默认的重置样式。
+
+```css "title="index.css"" {4}
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
+```
+
+:::
+
+import { Button } from '@shilong/react'
+
+## 3. 使用 <Button variant='link'><a href="/components/button">查看文档</a></Button>
+
+```tsx playground
+import { Button } from '@shilong/react'
+
+function App() {
+  return (
+    <div>
+      <Button>Hi 👋</Button>
+    </div>
+  )
+}
+
+export default App
+```

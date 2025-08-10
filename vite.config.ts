@@ -29,5 +29,11 @@ export default defineConfig({
       treeshake: true,
     },
   },
-  plugins: [react(), tailwindcss(), dts()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    dts({
+      include: ['src'],
+    }),
+  ],
 })

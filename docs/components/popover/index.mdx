@@ -1,0 +1,23 @@
+# Popover
+
+用户在某个参考元素上，动态显示某个弹框元素. 基于 [floating-ui](https://github.com/floating-ui/floating-ui)
+
+## Playground
+
+<code src="./playground.tsx" />
+
+## API
+
+| Property           | Description                        | Type                                                                                                                                                               | Default Value |
+| ------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| trigger            | 触发元素                           | `React.ReactElement`                                                                                                                                               | -             |
+| dismiss            | 是否打开键盘`esc`和弹窗外 点击关闭 | `boolean`                                                                                                                                                          | `true`        |
+| hover              | 是否开启 `hover` 打开弹窗          | `boolean`                                                                                                                                                          | `false`       |
+| click              | 是否开启 `click` 打开弹窗          | `boolean`                                                                                                                                                          | `true`        |
+| arrow              | 是否开启 弹窗箭头                  | `boolean`                                                                                                                                                          | `false`       |
+| offsetHeight       | `trigger元素` 与 弹窗 距离         | `number`                                                                                                                                                           | `0`           |
+| floatingArrowProps | 箭头额外属性                       | Omit\<[FloatingArrowProps](https://floating-ui.com/docs/floatingarrow), 'context'\>                                                                                | `{}`          |
+| children           |                                    | `React.ReactElement`                                                                                                                                               | -             |
+| onOpenChange       | 打开弹窗时回调函数                 | `((open: boolean, event?: Event, reason?: OpenChangeReason) => void) \| undefined`                                                                                 | -             |
+| placement          | 弹窗位置                           | `"top" \| "right" \| "bottom" \| "left"\|"top-start" \| "top-end" \| "right-start" \| "right-end" \| "bottom-start" \| "bottom-end" \| "left-start" \| "left-end"` | `bottom`      |
+| open               | 弹窗打开状态                       | `boolean`                                                                                                                                                          | `-`           |
