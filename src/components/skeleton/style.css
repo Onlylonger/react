@@ -1,0 +1,5 @@
+@reference "../../global.css";
+
+.slSkeleton {
+  @apply bg-accent animate-pulse rounded-md;
+}
