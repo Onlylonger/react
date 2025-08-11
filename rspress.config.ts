@@ -13,6 +13,13 @@ export default defineConfig({
   },
   icon: '/favicon.ico',
   themeConfig: {
+    socialLinks: [
+      {
+        icon: 'github',
+        mode: 'link',
+        content: 'https://github.com/Onlylonger/react',
+      },
+    ],
     nav: [
       {
         text: 'Quick Start',
@@ -40,10 +47,10 @@ export default defineConfig({
           text: 'Popover',
           link: '/components/popover',
         },
-        {
-          text: 'Input',
-          link: '/components/input',
-        },
+        // {
+        //   text: 'Input',
+        //   link: '/components/input',
+        // },
         {
           text: 'Tooltip',
           link: '/components/tooltip',

@@ -4,9 +4,14 @@
 
 ## 1. 安装依赖
 
-```sh
-pnpm add @shilong/react
-```
+import { PackageManagerTabs } from '@theme'
+
+<PackageManagerTabs
+  command={{
+    pnpm: 'pnpm add @shilong/react',
+    npm: 'npm install @shilong/react',
+  }}
+/>
 
 ## 2. 加载主题样式
 
@@ -40,7 +45,7 @@ createRoot(document.querySelector('#app')!).render(
 
 import { Button } from '@shilong/react'
 
-## 3. 使用 <Button variant='link'><a href="/components/button">查看文档</a></Button>
+## 3. 使用 <Button variant='link'><a href="/react/components/button">查看文档</a></Button>
 
 ```tsx playground
 import { Button } from '@shilong/react'
