@@ -1,0 +1,5 @@
+@reference "../../global.css";
+
+.slTableCellEmpty {
+  @apply h-24 text-center;
+}

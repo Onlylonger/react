@@ -1,0 +1,17 @@
+@reference "../../global.css";
+
+.slFormItem {
+  @apply flex justify-start gap-2;
+}
+
+.slFormItemLabel {
+  @apply w-2/7 shrink-0 break-all;
+}
+
+.slFormItemValue {
+  @apply relative w-5/7 shrink-0;
+}
+
+.slFormItemError {
+  @apply text-destructive absolute top-full left-0 mt-1 text-sm;
+}

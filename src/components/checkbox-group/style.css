@@ -1,0 +1,5 @@
+@reference "../../global.css";
+
+.slCheckGroup {
+  @apply flex flex-wrap gap-3;
+}

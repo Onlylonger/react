@@ -1,0 +1,5 @@
+@reference "../../global.css";
+
+.slForm {
+  @apply flex flex-col gap-8;
+}
