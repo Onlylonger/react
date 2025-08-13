@@ -2,6 +2,57 @@ import { defineConfig } from 'rspress/config'
 import { pluginPreview } from '@rspress/plugin-preview'
 import { pluginPlayground } from '@rspress/plugin-playground'
 
+const componentsList = [
+  {
+    text: 'Button',
+    link: '/components/button',
+  },
+  {
+    text: 'Toast',
+    link: '/components/toast',
+  },
+  {
+    text: 'Popover',
+    link: '/components/popover',
+  },
+  {
+    text: 'Input',
+    link: '/components/input',
+  },
+  {
+    text: 'Checkbox',
+    link: '/components/checkbox',
+  },
+  {
+    text: 'CheckboxGroup',
+    link: '/components/checkbox-group',
+  },
+  {
+    text: 'Form',
+    link: '/components/form',
+  },
+  {
+    text: 'Table',
+    link: '/components/table',
+  },
+  {
+    text: 'Tooltip',
+    link: '/components/tooltip',
+  },
+  {
+    text: 'Activity',
+    link: '/components/activity',
+  },
+  {
+    text: 'Skeleton',
+    link: '/components/skeleton',
+  },
+  // {
+  //   text: 'DataTable',
+  //   link: '/components/data-table',
+  // },
+]
+
 export default defineConfig({
   // 文档根目录
   root: 'docs',
@@ -34,36 +85,9 @@ export default defineConfig({
       },
     ],
     sidebar: {
-      '/components': [
-        {
-          text: 'Button',
-          link: '/components/button',
-        },
-        {
-          text: 'Toast',
-          link: '/components/toast',
-        },
-        {
-          text: 'Popover',
-          link: '/components/popover',
-        },
-        // {
-        //   text: 'Input',
-        //   link: '/components/input',
-        // },
-        {
-          text: 'Tooltip',
-          link: '/components/tooltip',
-        },
-        {
-          text: 'Activity',
-          link: '/components/activity',
-        },
-        {
-          text: 'Skeleton',
-          link: '/components/skeleton',
-        },
-      ],
+      '/components': componentsList.sort((a, b) =>
+        a.text.localeCompare(b.text),
+      ),
     },
   },
   plugins: [

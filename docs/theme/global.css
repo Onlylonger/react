@@ -2,3 +2,7 @@ table thead,
 tbody {
   width: 100%;
 }
+
+.items-start {
+  align-items: start;
+}
