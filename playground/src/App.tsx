@@ -1,62 +1,101 @@
-import { CheckboxGroup, Input, FormItem, Form, Button } from '../../src'
+import { DataTable, Form, FormItem, Input } from '../../src'
 
-const options = [
+export type Payment = {
+  id: string
+  amount: number
+  status: 'pending' | 'processing' | 'success' | 'failed'
+  email: string
+}
+
+const data: Payment[] = [
   {
-    label: '豆腐',
-    value: 'toufu',
+    id: 'm5gr84i9',
+    amount: 316,
+    status: 'success',
+    email: 'ken99@example.com',
   },
   {
-    label: '棉花糖',
-    value: 'mianhuatang',
+    id: '3u1reuv4',
+    amount: 242,
+    status: 'success',
+    email: 'Abe45@example.com',
   },
   {
-    label: '棉花糖2',
-    value: 'mianhuatang2',
+    id: 'derv1ws0',
+    amount: 837,
+    status: 'processing',
+    email: 'Monserrat44@example.com',
   },
   {
-    label: '棉花糖3',
-    value: 'mianhuatang3',
+    id: '5kma53ae',
+    amount: 874,
+    status: 'success',
+    email: 'Silas22@example.com',
   },
   {
-    label: '棉花糖4',
-    value: 'mianhuatang4',
+    id: 'bhqecj4p',
+    amount: 721,
+    status: 'failed',
+    email: 'carmella@example.com',
+  },
+]
+
+export const columns: DataTable.ColumnDef<Payment>[] = [
+  {
+    accessorKey: 'id',
+    header: 'ID',
+    cell: ({ row }) => row.getValue('id'),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue('status')}</div>
+    ),
+  },
+  {
+    accessorKey: 'email',
+    header: 'email',
+    cell: ({ row }) => <div className="lowercase">{row.getValue('email')}</div>,
+  },
+  {
+    accessorKey: 'amount',
+    header: () => <div className="text-right">Amount</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue('amount'))
+      // Format the amount as a dollar amount
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(amount)
+      return <div className="text-right font-medium">{formatted}</div>
+    },
   },
 ]
 
 export function App() {
+  const table = DataTable.useReactTable({
+    data,
+    columns,
+    getCoreRowModel: DataTable.getCoreRowModel(),
+    getFilteredRowModel: DataTable.getFilteredRowModel(),
+  })
+
+  const handleSubmit = (v: { email?: string }) => {
+    console.log(v?.email)
+    table.getColumn('email')?.setFilterValue(v.email)
+  }
+
   return (
-    <>
-      <div className="flex min-h-svh items-center justify-center">
-        <Form onSubmit={(v) => console.log(v)} className="max-w-[300px]">
-          <FormItem
-            label="Username"
-            name="username"
-            rules={{
-              required: '内容必填',
-            }}
-            render={<Input autoComplete="on" />}
-          />
-          <FormItem
-            label="Password"
-            name="password"
-            rules={{
-              required: 'message',
-            }}
-            render={<Input autoComplete="on" />}
-          />
-          <FormItem
-            label="like"
-            name="food"
-            rules={{
-              required: 'message',
-            }}
-            controlled
-            className="items-start"
-            render={<CheckboxGroup options={options} />}
-          />
-          <Button type="submit">Submit</Button>
+    <div>
+      <div>
+        <Form onSubmit={handleSubmit}>
+          <FormItem name="email" label="Email" render={<Input />} />
         </Form>
       </div>
-    </>
+      <div>
+        <DataTable.Table table={table} />
+      </div>
+    </div>
   )
 }

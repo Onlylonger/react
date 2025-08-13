@@ -1,8 +1,4 @@
-import {
-  flexRender,
-  useReactTable,
-  type TableOptions,
-} from '@tanstack/react-table'
+import { flexRender, type Table as RTable } from '@tanstack/react-table'
 import {
   Table as OriginTable,
   TableBody,
@@ -13,8 +9,8 @@ import {
 } from '../table'
 import './style.css'
 
-export const Table = <T = unknown,>(props: TableOptions<T>) => {
-  const table = useReactTable(props)
+export const Table = <T extends unknown>(props: { table: RTable<T> }) => {
+  const { table } = props
 
   return (
     <OriginTable>
@@ -53,7 +49,7 @@ export const Table = <T = unknown,>(props: TableOptions<T>) => {
         ) : (
           <TableRow>
             <TableCell
-              colSpan={props.columns.length}
+              colSpan={table.getAllColumns().length}
               className="slTableCellEmpty"
             >
               No results.

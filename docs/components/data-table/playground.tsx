@@ -74,24 +74,27 @@ export const columns: DataTable.ColumnDef<Payment>[] = [
 ]
 
 function App() {
-  const handleSubmit = (v: object) => {
-    // table.getColumn("email")?.setFilterValue(event.target.value)
+  const table = DataTable.useReactTable({
+    data,
+    columns,
+    getCoreRowModel: DataTable.getCoreRowModel(),
+    getFilteredRowModel: DataTable.getFilteredRowModel(),
+  })
+
+  const handleSubmit = (v: { email?: string }) => {
+    console.log(v?.email)
+    table.getColumn('email')?.setFilterValue(v.email)
   }
 
   return (
     <div>
       <div>
         <Form onSubmit={handleSubmit}>
-          <FormItem name="emial" label="Email" render={<Input />} />
+          <FormItem name="email" label="Email" render={<Input />} />
         </Form>
       </div>
       <div>
-        <DataTable.Table
-          data={data}
-          columns={columns}
-          getCoreRowModel={DataTable.getCoreRowModel()}
-          getFilteredRowModel={DataTable.getFilteredRowModel()}
-        />
+        <DataTable.Table table={table} />
       </div>
     </div>
   )
