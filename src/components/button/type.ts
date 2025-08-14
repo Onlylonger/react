@@ -1,12 +1,13 @@
-import type { VariantProps } from '@shilong/utils'
 import type { ReactNode } from 'react'
-import type { getBtnClx } from './style'
+import { type variants, type sizes } from './styles.css'
 
 type ButtonSelf = {
   children?: ReactNode
   loading?: boolean
   render?: (props: ButtonRenderProps) => ReactNode
-} & VariantProps<typeof getBtnClx>
+  variant?: keyof typeof variants
+  size?: keyof typeof sizes
+}
 
 export type ButtonRenderProps = {
   'data-slot': string

@@ -1,5 +1,6 @@
 import { clsx } from '@shilong/utils'
 import './style.css'
+import { skeleton } from './style.css'
 
 export function Skeleton(props: React.ComponentProps<'div'>) {
   const { className, ...reset } = props
@@ -7,7 +8,7 @@ export function Skeleton(props: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sl-skeleton"
-      className={clsx('slSkeleton', className)}
+      className={clsx(skeleton, className)}
       {...reset}
     />
   )

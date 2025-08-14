@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '../table'
-import './style.css'
+import { empty } from './style.css'
 
 export const Table = <T extends unknown>(props: { table: RTable<T> }) => {
   const { table } = props
@@ -48,10 +48,7 @@ export const Table = <T extends unknown>(props: { table: RTable<T> }) => {
           ))
         ) : (
           <TableRow>
-            <TableCell
-              colSpan={table.getAllColumns().length}
-              className="slTableCellEmpty"
-            >
+            <TableCell colSpan={table.getAllColumns().length} className={empty}>
               No results.
             </TableCell>
           </TableRow>

@@ -1,0 +1,96 @@
+:root {
+  --sl-radius: 0.625rem;
+  --sl-spacing: 0.25rem;
+  --sl-background: 0 0% 100%;
+  --sl-foreground: 0 0% 3.9%;
+  --sl-card: 0 0% 100%;
+  --sl-card-foreground: 0 0% 3.9%;
+  --sl-popover: 0 0% 100%;
+  --sl-popover-foreground: 0 0% 3.9%;
+  --sl-primary: 0 0% 9%;
+  --sl-primary-foreground: 0 0% 98%;
+  --sl-secondary: 0 0% 96.1%;
+  --sl-secondary-foreground: 0 0% 9%;
+  --sl-muted: 0 0% 96.1%;
+  --sl-muted-foreground: 0 0% 45.1%;
+  --sl-accent: 0 0% 96.1%;
+  --sl-accent-foreground: 0 0% 9%;
+  --sl-destructive: 0 84.2% 60.2%;
+  --sl-destructive-foreground: 0 0% 98%;
+  --sl-border: 0 0% 89.8%;
+  --sl-input: 0 0% 89.8%;
+  --sl-ring: 0 0% 3.9%;
+  --sl-radius: 0.5rem;
+  --sl-chart-1: 12 76% 61%;
+  --sl-chart-2: 173 58% 39%;
+  --sl-chart-3: 197 37% 24%;
+  --sl-chart-4: 43 74% 66%;
+  --sl-chart-5: 27 87% 67%;
+}
+.dark {
+  --sl-background: 0 0% 3.9%;
+  --sl-foreground: 0 0% 98%;
+  --sl-card: 0 0% 3.9%;
+  --sl-card-foreground: 0 0% 98%;
+  --sl-popover: 0 0% 3.9%;
+  --sl-popover-foreground: 0 0% 98%;
+  --sl-primary: 0 0% 98%;
+  --sl-primary-foreground: 0 0% 9%;
+  --sl-secondary: 0 0% 14.9%;
+  --sl-secondary-foreground: 0 0% 98%;
+  --sl-muted: 0 0% 14.9%;
+  --sl-muted-foreground: 0 0% 63.9%;
+  --sl-accent: 0 0% 14.9%;
+  --sl-accent-foreground: 0 0% 98%;
+  --sl-destructive: 0 62.8% 30.6%;
+  --sl-destructive-foreground: 0 0% 98%;
+  --sl-border: 0 0% 14.9%;
+  --sl-input: 0 0% 14.9%;
+  --sl-ring: 0 0% 83.1%;
+  --sl-chart-1: 220 70% 50%;
+  --sl-chart-2: 160 60% 45%;
+  --sl-chart-3: 30 80% 55%;
+  --sl-chart-4: 280 65% 60%;
+  --sl-chart-5: 340 75% 55%;
+}
+
+:where([class^='sl_'], [class*=' sl_']) {
+  &::after,
+  &::before,
+  &::backdrop,
+  &::file-selector-button {
+    box-sizing: border-box;
+  }
+
+  box-sizing: border-box;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+
+  border-color: hsl(var(--sl-border));
+  outline-color: hsla(var(--sl-ring), 0.5);
+
+  &:where(button, input, select, optgroup, textarea, ::file-selector-button) {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  &:where(
+    button,
+    input:where([type='button'], [type='reset'], [type='submit']),
+    ::file-selector-button
+  ) {
+    appearance: button;
+  }
+}
+
+:where(.dark) {
+  background-color: hsl(var(--sl-background));
+  color: hsl(var(--sl-foreground));
+}

@@ -1,7 +1,7 @@
 import { clsx } from '@shilong/utils'
 import { Popover, type PopoverProps } from '../popover'
 import type { PropsWithChildren } from 'react'
-import './style.css'
+import { arrow, tooltip } from './style.css'
 
 export type TooltipProps = Omit<
   PopoverProps,
@@ -17,9 +17,9 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
     <Popover
       {...reset}
       offsetHeight={5}
-      floatingArrowProps={{ className: 'slTooltipArrow' }}
+      floatingArrowProps={{ className: arrow }}
     >
-      <div className={clsx('slTooltip', className)}>{children}</div>
+      <div className={clsx(tooltip, className)}>{children}</div>
     </Popover>
   )
 }

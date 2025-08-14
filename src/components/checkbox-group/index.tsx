@@ -1,8 +1,8 @@
 import { clsx } from '@shilong/utils'
 import { Checkbox, type CheckboxProps } from '../checkbox'
 import { Label } from '../label'
-import './style.css'
 import type { AriaAttributes } from 'react'
+import { checkboxGroup } from './style.css'
 
 export interface CheckboxGroupProps {
   options: ({
@@ -28,7 +28,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   }
 
   return (
-    <div className={clsx('slCheckGroup', className)}>
+    <div className={clsx(checkboxGroup, className)}>
       {options.map((option) => {
         const { label, ...other } = option
 

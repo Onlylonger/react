@@ -1,18 +1,26 @@
 import { Loader2Icon } from 'lucide-react'
-import './style.css'
 import type { ButtonProps } from './type'
-import { getBtnClx } from './style'
+import { variants, sizes, base } from './styles.css'
+import { clsx } from '@shilong/utils'
+import { animateSpin } from '../theme/global.css'
 
 const Button = (props: ButtonProps) => {
-  const { className, children, render, variant, size, loading, ...reset } =
-    props
+  const {
+    className,
+    children,
+    render,
+    variant = 'default',
+    size = 'default',
+    loading,
+    ...reset
+  } = props
 
   const btnCommonProps = {
     'data-slot': 'sl-button',
-    className: getBtnClx({ variant, size, className }),
+    className: clsx(base, variants[variant], sizes[size], className),
     children: (
       <>
-        {loading && <Loader2Icon className="animate-spin" />}
+        {loading && <Loader2Icon className={animateSpin} />}
         {children}
       </>
     ),

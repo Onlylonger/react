@@ -1,4 +1,4 @@
-import './global.css'
+import './components/theme/theme.css'
 export * from './components/button'
 export * from './components/toast'
 export * from './components/input'

@@ -1,9 +1,9 @@
 import { clsx } from '@shilong/utils'
 import { Label } from '../label'
-import './style.css'
 import { cloneElement, useId } from 'react'
 import { useForm } from '../form'
 import { Controller } from 'react-hook-form'
+import { item, itemError, itemLabel, itemValue } from './style.css'
 
 export type FormItemProps = {
   className?: string
@@ -34,12 +34,12 @@ export const FormItem = (props: FormItemProps) => {
 
   return (
     <div
-      className={clsx('slFormItem', className, {
+      className={clsx(item, className, {
         slFormItemVertical: vertical,
       })}
     >
       <Label
-        className={clsx('slFormItemLabel', labelClassName)}
+        className={clsx(itemLabel, labelClassName)}
         htmlFor={controlled ? undefined : id}
       >
         {label}
@@ -50,26 +50,26 @@ export const FormItem = (props: FormItemProps) => {
           name={name}
           rules={rules}
           render={({ field, fieldState }) => (
-            <div className="slFormItemValue">
+            <div className={itemValue}>
               {cloneElement<any>(render, {
                 ...field,
                 'aria-invalid': !!fieldState.error,
               })}
               {fieldState.error && (
-                <p className="slFormItemError">{fieldState.error.message}</p>
+                <p className={itemError}>{fieldState.error.message}</p>
               )}
             </div>
           )}
         />
       ) : (
-        <div className="slFormItemValue">
+        <div className={itemValue}>
           {cloneElement<any>(render, {
             ...register(name, rules),
             id,
             'aria-invalid': !!errors[name],
           })}
           {errors[name] && (
-            <p className="slFormItemError">{errors[name].message as string}</p>
+            <p className={itemError}>{errors[name].message as string}</p>
           )}
         </div>
       )}{' '}

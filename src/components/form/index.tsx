@@ -5,7 +5,6 @@ import {
   type FieldValues,
   type SubmitHandler,
 } from 'react-hook-form'
-import './style.css'
 import { formContext } from './context'
 
 export type FormProps = {

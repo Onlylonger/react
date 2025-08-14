@@ -1,4 +1,4 @@
-import { Button, Checkbox } from '@shilong/react'
+import { Button, Checkbox, Label } from '@shilong/react'
 import { useState } from 'react'
 
 function App() {
@@ -7,7 +7,10 @@ function App() {
 
   return (
     <>
-      <Checkbox aria-invalid={error} disabled={disabled} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <Checkbox aria-invalid={error} disabled={disabled} id="food" />
+        <Label htmlFor="food">香蕉</Label>
+      </div>
       <div style={{ marginTop: 20, display: 'flex', gap: 20 }}>
         <Button variant="destructive" onClick={() => setError(!error)}>
           Toggle Error
