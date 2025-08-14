@@ -1,17 +1,21 @@
 @reference "../../global.css";
 
 .slFormItem {
-  @apply flex justify-start gap-2;
+  @apply flex items-center justify-start gap-2 pb-7;
+}
+
+.slFormItemVertical {
+  @apply flex-col items-start [&_.slFormItemLabel]:w-full [&_.slFormItemLabel]:text-left [&_.slFormItemValue]:w-full;
 }
 
 .slFormItemLabel {
-  @apply w-2/7 shrink-0 break-all;
+  @apply inline-block w-2/7 shrink-0 text-right;
 }
 
 .slFormItemValue {
-  @apply relative w-5/7 shrink-0;
+  @apply relative flex-1;
 }
 
 .slFormItemError {
-  @apply text-destructive absolute top-full left-0 mt-1 text-sm;
+  @apply text-destructive absolute top-full left-0 mt-0.5 ml-0.5 text-sm;
 }

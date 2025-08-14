@@ -13,6 +13,7 @@ export type FormItemProps = {
   rules?: any
   render: React.ReactElement
   controlled?: boolean
+  vertical?: boolean
 }
 
 export const FormItem = (props: FormItemProps) => {
@@ -24,6 +25,7 @@ export const FormItem = (props: FormItemProps) => {
     name,
     rules,
     controlled = false,
+    vertical = false,
   } = props
 
   const { register, errors, control } = useForm()
@@ -31,7 +33,11 @@ export const FormItem = (props: FormItemProps) => {
   const id = useId()
 
   return (
-    <div className={clsx('slFormItem', className)}>
+    <div
+      className={clsx('slFormItem', className, {
+        slFormItemVertical: vertical,
+      })}
+    >
       <Label
         className={clsx('slFormItemLabel', labelClassName)}
         htmlFor={controlled ? undefined : id}

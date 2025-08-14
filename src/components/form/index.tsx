@@ -1,12 +1,16 @@
 import { clsx } from '@shilong/utils'
 import { type PropsWithChildren } from 'react'
-import { useForm as useReackHookForm } from 'react-hook-form'
+import {
+  useForm as useReackHookForm,
+  type FieldValues,
+  type SubmitHandler,
+} from 'react-hook-form'
 import './style.css'
 import { formContext } from './context'
 
 export type FormProps = {
   hookFormOptions?: any
-  onSubmit: any
+  onSubmit: SubmitHandler<FieldValues>
 } & React.ComponentProps<'form'>
 
 export const Form = (props: PropsWithChildren<FormProps>) => {
