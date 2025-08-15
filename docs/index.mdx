@@ -1,6 +1,6 @@
 # Quick Start
 
-基于 `Tailwindcss` 的一个 `React` 组件库. 参考 `shadcn-ui` 实现. 目前只提供 `ES` 模块
+基于 `vanilla-extract` 的一个 `React` 组件库. 参考 `shadcn-ui` 实现. 目前只提供 `ES` 模块
 
 ## 1. 安装依赖
 
@@ -28,20 +28,6 @@ createRoot(document.querySelector('#app')!).render(
   </StrictMode>,
 )
 ```
-
-:::details Tailwindcss Preflight 重复如何处理？
-
-因为默认主题中包含了 `Tailwindcss Preflight` 的样式. 因此当你自身项目也在使用 `Tailwindcss` 的时候，可以注释或者去掉 默认的重置样式。
-
-```css "title="index.css"" {4}
-@layer theme, base, components, utilities;
-
-@import 'tailwindcss/theme.css' layer(theme);
-/* @import 'tailwindcss/preflight.css' layer(base); */
-@import 'tailwindcss/utilities.css' layer(utilities);
-```
-
-:::
 
 import { Button } from '@shilong/react'
 
