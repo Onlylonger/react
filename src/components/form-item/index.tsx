@@ -3,7 +3,13 @@ import { Label } from '../label'
 import { cloneElement, useId } from 'react'
 import { useForm } from '../form'
 import { Controller } from 'react-hook-form'
-import { item, itemError, itemLabel, itemValue } from './style.css'
+import {
+  item,
+  itemError,
+  itemLabel,
+  itemValue,
+  itemVertical,
+} from './style.css'
 
 export type FormItemProps = {
   className?: string
@@ -35,7 +41,7 @@ export const FormItem = (props: FormItemProps) => {
   return (
     <div
       className={clsx(item, className, {
-        slFormItemVertical: vertical,
+        [itemVertical]: vertical,
       })}
     >
       <Label
