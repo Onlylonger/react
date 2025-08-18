@@ -1,6 +1,6 @@
 {
   "name": "@shilong/react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "packageManager": "pnpm@10.6.3",
   "description": "A simple react ui component",
   "keywords": [
