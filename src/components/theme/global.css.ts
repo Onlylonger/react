@@ -30,7 +30,7 @@ const varsKey = [
   'chart-3',
   'chart-4',
   'chart-5',
-  'sidebar',
+  'sidebar-background',
   'sidebar-foreground',
   'sidebar-primary',
   'sidebar-primary-foreground',

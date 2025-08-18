@@ -8,7 +8,10 @@ export default defineConfig({
   plugins: [
     react(),
     vanillaExtractPlugin({
-      identifiers: ({ hash }) => `sl_${hash}`,
+      identifiers: ({ hash }) => {
+        if (process.env.NODE_ENV === 'production') return `sl_${hash}`
+        else return `sl_${hash}`
+      },
     }),
   ],
 })

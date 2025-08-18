@@ -1,25 +1,77 @@
-import { Button, Checkbox, Input, Label } from '../../src'
+import { Calendar, Group, Home, KeyRound, Search, User } from 'lucide-react'
+import { Aside, AsidebarTrigger, useAside } from '../../src/components/aside'
+import { AsideProvider } from '../../src/components/aside/context'
+
 import { useState } from 'react'
 
-function App() {
-  const [error, setError] = useState(false)
-  const [disabled, setDisabled] = useState(false)
+const items = [
+  {
+    groupTitle: 'User',
+    menusList: [
+      {
+        title: 'Home',
+        url: '/',
+        icon: Home,
+        key: 'home',
+      },
+      {
+        title: 'User',
+        url: '/user',
+        icon: User,
+        key: 'user',
+      },
+      {
+        title: 'Group',
+        icon: Group,
+        key: 'group',
+        children: [
+          {
+            title: 'Item1',
+            url: '/item1',
+            icon: Calendar,
+            key: 'item1',
+          },
+          {
+            title: 'Item2',
+            url: '/item2',
+            icon: Search,
+            key: 'item2',
+          },
+        ],
+      },
+      {
+        title: 'Role',
+        url: '/role',
+        icon: KeyRound,
+        key: 'role',
+      },
+    ],
+  },
+]
+
+export default function App() {
+  const [menus, setMeuns] = useState(items)
 
   return (
-    <>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Checkbox aria-invalid={error} disabled={disabled} id="food" />
-        <Label htmlFor="food">香蕉</Label>
-        <Input placeholder="nihao" />
-      </div>
-      <div style={{ marginTop: 20, display: 'flex', gap: 20 }}>
-        <Button variant="destructive" onClick={() => setError(!error)}>
-          Toggle Error
-        </Button>
-        <Button onClick={() => setDisabled(!disabled)}>Toggle disabled</Button>
-      </div>
-    </>
+    <div style={{ display: 'flex' }}>
+      <AsideProvider>
+        <Aside
+          activeKey="item1"
+          defaultList={menus}
+          onNav={(v) => {
+            console.log(v)
+          }}
+        />
+
+        <div>
+          <div>header</div>
+          <div>
+            <AsidebarTrigger
+              render={(val) => <span onClick={() => val.toggle()}>nihao</span>}
+            />
+          </div>
+        </div>
+      </AsideProvider>
+    </div>
   )
 }
-
-export default App
