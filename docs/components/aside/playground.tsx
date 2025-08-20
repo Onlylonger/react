@@ -1,8 +1,5 @@
+import { AsideProvider, Aside, AsidebarTrigger, Button } from '@shilong/react'
 import { Calendar, Group, Home, KeyRound, Search, User } from 'lucide-react'
-import { Aside, AsidebarTrigger, useAside } from '../../src/components/aside'
-import { AsideProvider } from '../../src/components/aside/context'
-import { Tabs } from '../../src/components/tabs/Tabs'
-
 import { useState } from 'react'
 
 const items = [
@@ -24,7 +21,6 @@ const items = [
       {
         title: 'Group',
         icon: Group,
-        key: 'group',
         children: [
           {
             title: 'Item1',
@@ -50,48 +46,38 @@ const items = [
   },
 ]
 
-export default function App() {
-  const [menus, setMeuns] = useState(items)
+function App() {
+  const [routeKey, setRouteKey] = useState('item1')
 
   return (
-    <div style={{ display: 'flex' }}>
-      <AsideProvider>
+    <AsideProvider>
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
         <Aside
-          activeKey="item1"
-          defaultList={menus}
+          activeKey={routeKey}
+          defaultList={items}
           onNav={(v) => {
-            console.log(v)
+            v.key && setRouteKey(v.key)
           }}
         />
-
         <div>
-          <div>header</div>
           <div>
             <AsidebarTrigger
-              render={(val) => <span onClick={() => val.toggle()}>nihao</span>}
+              render={(val) => (
+                <Button variant="outline" onClick={() => val.toggle()}>
+                  Toggle
+                </Button>
+              )}
             />
           </div>
-          <div>
-            <Tabs
-              list={[
-                {
-                  label: '1111',
-                  value: '222',
-                },
-                {
-                  label: '222',
-                  value: '33',
-                  // disabled: true,
-                },
-              ]}
-              closable
-              onChange={(a) => {
-                console.log(a)
-              }}
-            />
-          </div>
+          <div>main</div>
         </div>
-      </AsideProvider>
-    </div>
+      </div>
+    </AsideProvider>
   )
 }
+
+export default App

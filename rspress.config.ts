@@ -47,6 +47,14 @@ const componentsList = [
     text: 'Skeleton',
     link: '/components/skeleton',
   },
+  {
+    text: 'Aside',
+    link: '/components/aside',
+  },
+  {
+    text: 'Tabs',
+    link: '/components/tabs',
+  },
   // {
   //   text: 'DataTable',
   //   link: '/components/data-table',

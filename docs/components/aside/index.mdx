@@ -1,0 +1,33 @@
+# Aside
+
+常用于侧边栏导航
+
+## Playground
+
+<code src="./playground.tsx" />
+
+## API
+
+### Aside
+
+| Property       | Description              | Type                                                                                | Default Value |
+| -------------- | ------------------------ | ----------------------------------------------------------------------------------- | ------------- |
+| defaultList`*` | 侧边栏菜单列表           | `AsideListItem[]`                                                                   | -             |
+| activeKey`*`   | 选中的菜单               | `string`                                                                            | -             |
+| className      | 类名                     | `string`                                                                            | -             |
+| title          | 顶部模块                 | `ReactNode`                                                                         | -             |
+| footer         | 底部模块                 | `ReactNode`                                                                         | -             |
+| onNav          | 点击菜单后触发的回掉函数 | `(value: { title: string;url?: string; icon?: LucideIcon; key?: string; }) => void` | -             |
+
+### AsideProvider
+
+无输入参数
+
+### useAside
+
+#### 输出
+
+| Property | Description    | Type         | Default Value |
+| -------- | -------------- | ------------ | ------------- |
+| open     | 是否打开面板   | `boolean`    | `false`       |
+| toggle   | 折叠当前侧边栏 | `() => void` | -             |

@@ -1,0 +1,18 @@
+# Tabs
+
+常用于选择某一个标签值
+
+## Playground
+
+<code src="./playground.tsx" />
+
+## API
+
+### Tabs
+
+| Property | Description            | Type                                                      | Default Value |
+| -------- | ---------------------- | --------------------------------------------------------- | ------------- |
+| list`*`  | 标签列表               | `{ label: string; value: string; disabled?: boolean; }[]` | -             |
+| value    | 选中的标签值           | `string`                                                  | -             |
+| onChange | 选中或者关闭的回掉函数 | `(action: 'select' \| 'close', value: Item) => void`      | -             |
+| closable | 是否可以关闭标签       | `boolean`                                                 | -             |
